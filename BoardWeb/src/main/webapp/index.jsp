@@ -4,30 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <title>FV_Project</title>
-<link href="/resources/css/index2.css" rel="stylesheet" type="text/css">
+<link href="/resources/css/index.css" rel="stylesheet" type="text/css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
-<style>
-  /* 기본 스타일 */
-  body {
-    font-family: sans-serif;
-  }
-  
-  table {
-    border-collapse: collapse;
-    width: 50%;
-    margin-top: 20px;
-  }
-  
-  th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  th {
-    background-color: #f2f2f2;
-  }
-</style>
 </head>
 <body>
 
@@ -44,10 +22,9 @@
   <table>
     <tr>
       <td>
-        <iframe id="map-iframe" src="/map(PT)0.2.jsp" marginwidth="1" marginheight="1"
-          frameborder="1" scrolling="no" style="width: 1000px; height: 700px">
-        
-        </iframe>
+        <iframe id="map-iframe" src="/map(PT)0.3.jsp" marginwidth="0"
+    		marginheight="0" frameborder="0" scrolling="no">
+    	</iframe>
       </td>
     </tr>
   </table>

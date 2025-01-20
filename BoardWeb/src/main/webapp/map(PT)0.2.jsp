@@ -57,8 +57,10 @@
 
     // 항공기 데이터 가져오기 함수
     function fetchFlights() {
-      var username = "HyuU";
-      var password = "qwer1234";
+    	//var username = "HyuU";
+        var username = "sugil1";
+        //var username = "sugil4";
+        var password = "qwer1234";
       var base64Credentials = btoa(username + ":" + password);
 
       var bounds = {
