@@ -166,6 +166,12 @@
     <version>1.2.4</version>
 </dependency>
 
+<!-- 오픈스카이 종속성 -->
+<!-- <dependency>
+    <groupId>org.opensky</groupId>
+    <artifactId>opensky-api</artifactId>
+    <version>1.2.0</version>
+</dependency> -->
 
 </dependencies>
     <build>

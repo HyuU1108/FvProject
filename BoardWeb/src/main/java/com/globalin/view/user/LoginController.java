@@ -1,7 +1,5 @@
 package com.globalin.view.user;
 
-
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;

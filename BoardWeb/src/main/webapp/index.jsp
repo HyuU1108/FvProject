@@ -3,8 +3,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Flight Information</title>
-<link href="/resources/css/index.css" rel="stylesheet" type="text/css">
+<title>FV_Project</title>
+<link href="/resources/css/index2.css" rel="stylesheet" type="text/css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
 <style>
   /* 기본 스타일 */
