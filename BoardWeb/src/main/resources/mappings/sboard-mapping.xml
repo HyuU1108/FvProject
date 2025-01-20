@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="SBoardDAO">
+  	<insert id="insertSBoard">
+  	insert into fv_sboard(sb_num, sb_subject, e_nick, sb_content) values((select nvl(max(seq), 0)+1 from fv_sboard), #{sb_subject},#{e_nick},#{sb_content})
+  	</insert>
+  	
+  	<update id="updateSBoard">
+  	update fv_sboard set sb_subject=#{sb_subject}, sb_content=#{sb_content} where sb_num=#{sb_num}
+  	</update>
+  	
+  	<delete id="deleteSBoard">
+  	delete fv_sboard where sb_num=#{sb_num}
+  	</delete>
+  	
+  	<select id="getSBoard" resultType="sboard">
+  	select * from fv_sboard where sb_num=#{sb_num}
+  	</select>
+  	
+  	<select id="getSBoardList" resultType="sboard">
+	select * from fv_sboard order by sb_num desc
+  	</select>
+  	
+  </mapper>
+  
+ 
+  

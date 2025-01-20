@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="NBoardDAO">
+  	<insert id="insertNBoard">
+  	insert into fv_nboard(b_seq, fb_title, e_nick, fb_content) values((select nvl(max(seq), 0)+1 from fv_nboard), #{fb_title},#{e_nick},#{fb_content})
+  	</insert>
+  	
+  	<update id="updateNBoard">
+  	update fv_nboard set fb_title=#{fb_title}, fb_content=#{fb_content} where b_seq=#{b_seq}
+  	</update>
+  	
+  	<delete id="deleteNBoard">
+  	delete fv_nboard where b_seq=#{b_seq}
+  	</delete>
+  	
+  	<select id="getNBoard" resultType="nboard">
+  	select * from fv_nboard where b_seq=#{b_seq}
+  	</select>
+  	
+  	<select id="getNBoardList" resultType="nboard">
+	select * from fv_nboard order by b_seq desc
+  	</select>
+  	
+  </mapper>
+  
+ 
+  

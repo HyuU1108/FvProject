@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="FlightInfoMapper">
+    <insert id="insertFlightInfo" parameterType="FlightInfo">
+        INSERT INTO flight_info (flight, id, latitude, longitude, altitude, velocity, heading)
+        VALUES (#{flight}, #{id}, #{latitude}, #{longitude}, #{altitude}, #{velocity}, #{heading})
+    </insert>
+
+    <select id="selectFlightInfoById" parameterType="String" resultType="FlightInfo">
+        SELECT * FROM FLIGHT_INFO WHERE ID = #{flightId}
+    </select>
+
+    <select id="selectAllFlightInfo" resultType="FlightInfo">
+        SELECT * FROM flight_info
+    </select>
+</mapper>
