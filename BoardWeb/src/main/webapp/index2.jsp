@@ -13,7 +13,7 @@
     <div class="gtco-container">
       <div class="row">
         <div class="col-sm-4 col-xs-12">
-          <div id="gtco-logo"><a href="index.jsp">FV <em>.</em></a></div>
+          <div id="gtco-logo"><a href="index3.jsp">FV <em>.</em></a></div>
         </div>
       </div>
     </div>
@@ -22,28 +22,27 @@
   <table>
     <tr>
       <td>
-        <iframe id="map-iframe" src="/map(PT)0.6.jsp" marginwidth="0"
-    		marginheight="0" frameborder="0" scrolling="no">
+        <iframe id="map-iframe" src="/map(PT)0.3.jsp" scrolling="no">
     	</iframe>
       </td>
     </tr>
   </table>
-</body>
 
  
   <footer>
     <a href="login.do">
       <input type="button" value="로그인" class="btn">
     </a>
-    <a href="getBoardList.do">
-      <input type="button" value="자유게시판" class="btn-link">
+    <a href="getBoardList.do" class="btn-link">
+      자유게시판
     </a>
-    <a href="getSBoardList.do">
-      <input type="button" value="건의게시판" class="btn-link">
+    <a href="getSBoardList.do" class="btn-link">
+      건의게시판
     </a>
-    <a href="getNBoardList.do">
-      <input type="button" value="공지" class="btn-link">
+    <a href="getNBoardList.do" class="btn-link">
+      공지
     </a>
   </footer>
 
+</body>
 </html>

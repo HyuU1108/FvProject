@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>건의게시판 글 목록</title>
-<link href="/resources/css/getBoardList.css" rel="stylesheet" type="text/css">
+<link href="/resources/css/getBoardList2.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div align="center">
@@ -34,7 +34,7 @@
 </form>
 <!-- 검색 종료 -->
 
-<table border="1" cellpadding="0" cellspacing="0" width="700">
+<table class="bdtable">
 			<tr>
 				<th bgcolor="orange" width="100">번호</th>
 				<th bgcolor="orange" width="200">제목</th>
@@ -58,5 +58,19 @@
 		<a href="insertSBoard.jsp">새글 등록</a>
 </div>
 </body>
+  <footer>
+    <a href="login.do">
+      <input type="button" value="로그인" class="btn">
+    </a>
+    <a href="getBoardList.do">
+      <input type="button" value="자유게시판" class="btn-link">
+    </a>
+    <a href="getSBoardList.do">
+      <input type="button" value="건의게시판" class="btn-link">
+    </a>
+    <a href="getNBoardList.do">
+      <input type="button" value="공지" class="btn-link">
+    </a>
+  </footer>
 
 </html>

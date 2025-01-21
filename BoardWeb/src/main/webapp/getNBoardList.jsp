@@ -7,13 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>공지 목록</title>
-<link href="/resources/css/getBoardList.css" rel="stylesheet" type="text/css">
+<link href="/resources/css/getBoardList2.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div align="center">
 <h1>공지 목록</h1>
 <h3>
-	${AdminVO.adminid}님 환영합니다...<a href="logout.do">Log-out</a>
+	${userName}님 환영합니다...<a href="logout.do">Log-out</a>
 </h3>
 
 <!-- 검색 시작 -->
@@ -34,7 +34,7 @@
 </form>
 <!-- 검색 종료 -->
 
-<table border="1" cellpadding="0" cellspacing="0" width="700">
+<table class="bdtable">
 			<tr>
 				<th bgcolor="orange" width="100">번호</th>
 				<th bgcolor="orange" width="200">제목</th>
@@ -58,5 +58,19 @@
 		<a href="insertNBoard.jsp">공지 작성</a>
 </div>
 </body>
+  <footer>
+    <a href="login.do">
+      <input type="button" value="로그인" class="btn">
+    </a>
+    <a href="getBoardList.do">
+      <input type="button" value="자유게시판" class="btn-link">
+    </a>
+    <a href="getSBoardList.do">
+      <input type="button" value="건의게시판" class="btn-link">
+    </a>
+    <a href="getNBoardList.do">
+      <input type="button" value="공지" class="btn-link">
+    </a>
+  </footer>
 
 </html>

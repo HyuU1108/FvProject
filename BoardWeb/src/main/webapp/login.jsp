@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 </head>
-<body>
 <div class="container right-panel-active">
   <!-- Sign Up -->
   <div class="container__form container--signup">
