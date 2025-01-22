@@ -17,7 +17,11 @@
 	<div>
 		<h1>글 목록</h1>
 		<h3>
+
+			<c:if test="${not empty userName }">
 			${userName}님 환영합니다...<a href="logout.do">Log-out</a>
+			</c:if>
+
 		</h3>
 
 		<!-- 검색 시작 -->
@@ -55,12 +59,16 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<br> <a href="insertBoard.jsp">새글 등록</a>
+		<br> 
+	<a href="insertBoard.jsp">새글등록</a>
 	</div>
 </body>
 <footer>
-	<a href="index.jsp"> <input type="button" value="메인" class="btn">
-	</a> <a href="getBoardList.do"> <input type="button" value="자유게시판"
+	<a href="logout.do"> 
+	<input type="button" value="로그아웃" class="btn">
+	</a>
+	<a href="getBoardList.do"> 
+		<input type="button" value="자유게시판"
 		class="btn-link">
 	</a> <a href="getSBoardList.do"> <input type="button" value="건의게시판"
 		class="btn-link">

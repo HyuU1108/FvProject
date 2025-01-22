@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>비행 추적기</title>
+    <title>트래커</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
         /* 지도 스타일 */
@@ -66,11 +66,36 @@
         .flight-info-table th {
             background-color: #f2f2f2;
         }
+
+        /* 새로고침 버튼 스타일 */
+        .reset-button {
+            position: absolute; /* 지도 컨테이너 (#map)를 기준으로 절대 위치 설정 */
+            top: 10px; /* 상단에서 10px 떨어진 위치 */
+            right: 10px; /* 오른쪽에서 10px 떨어진 위치 */
+            z-index: 1100; /* flight-info-container 보다 위에 표시되도록 z-index 값 조정 */
+        }
+
+        .reset-button button {
+            background-color: white; /* 버튼 배경색 흰색 */
+            color: black; /* 버튼 텍스트 색상 검정색 */
+            border: 1px solid #ccc; /* 버튼 테두리 설정 */
+            padding: 8px 12px; /* 버튼 내부 여백 설정 */
+            border-radius: 5px; /* 버튼 테두리 둥글게 */
+            cursor: pointer; /* 마우스 커서 모양 변경 (손가락 모양) */
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+        }
+
+        .reset-button button:hover {
+            background-color: #f0f0f0; /* 마우스 호버 시 배경색 약간 밝게 */
+        }
     </style>
 </head>
 
 <body>
 <div id="map">
+    <div id="reset-button" class="reset-button">
+        <button onclick="fetchFlights()">새로고침</button>
+    </div>
     <div id="flight-info-container" class="flight-info-container">
     	<img src="/resources/img/kalB787-9.jpg" width="283">
         <table class="flight-info-table">
@@ -186,16 +211,13 @@
 
                                 marker.on("click", function (e) {
                                     L.DomEvent.stopPropagation(e);
-                                    allPlanesVisible = false;
 
                                     if (currentPath) {
                                         map.removeLayer(currentPath);
+                                        currentPath = null; // currentPath 변수 초기화
                                     }
 
-                                    for (let key in markers) {
-                                        if (markers[key] !== marker)
-                                            map.removeLayer(markers[key]);
-                                    }
+                                    // 다른 마커 제거 로직 제거 (모든 마커 유지)
 
                                     currentPath = L.polyline(flightPaths[planeId], {
                                         color: "blue",
@@ -203,20 +225,20 @@
                                     }).addTo(map);
 
                                     var flightInfo = {
-                                        "비행편명": callsign, // 변경
-                                        "식별 코드": planeId, // 변경
-                                        "위도": lat.toFixed(6), // 변경
-                                        "경도": lon.toFixed(6), // 변경
-                                        "고도": plane[7], // 변경 (단위: 미터)
-                                        "속도": plane[9], // 변경 (단위: m/s)
-                                        "방향": heading, // 변경 (단위: 도)
-                                        "출발 국가": origin_country, // 변경
-                                        "상태": on_ground, // 변경
+                                        "비행편명": callsign,
+                                        "식별 코드": planeId,
+                                        "위도": lat.toFixed(6),
+                                        "경도": lon.toFixed(6),
+                                        "고도": plane[7],
+                                        "속도": plane[9],
+                                        "방향": heading,
+                                        "출발 국가": origin_country,
+                                        "상태": on_ground,
                                     };
 
                                     updateTable(flightInfo);
                                     flightInfoContainer.style.display = 'block';
-                                    map.setView(marker.getLatLng(), map.getZoom(), { // 현재 위치로 시점 이동
+                                    map.setView(marker.getLatLng(), map.getZoom(), {
                                         animate: true,
                                         duration: 1
                                     });
@@ -247,7 +269,17 @@
     }
 
 
-    // 지도 클릭 이벤트 처리 (기존 코드 유지)
+    // 지도 클릭 이벤트 처리 (정보창 닫고 선택 해제)
+    map.on('click', function(e) {
+        hideFlightInfoContainer(); // 정보창 숨김
+        if (currentPath) {
+            map.removeLayer(currentPath); // 현재 경로 제거
+            currentPath = null;
+        }
+        // 모든 마커는 항상 표시되도록 유지 (마커 관련 코드 제거)
+    });
+
+
     function updateTable(flightInfo) {
         flightInfoTableBody.innerHTML = '';
         for (const key in flightInfo) {
@@ -255,11 +287,16 @@
             let propertyCell = row.insertCell();
             let valueCell = row.insertCell();
 
-            // 항목을 한국어로 표시
             propertyCell.textContent = key;
             valueCell.textContent = flightInfo[key];
         }
     }
+
+    // 정보창 숨김 함수 (외부에서 호출 가능하도록 함수로 분리)
+    function hideFlightInfoContainer() {
+        flightInfoContainer.style.display = 'none';
+    }
+
 
     setInterval(fetchFlights, 5000);
     fetchFlights();
