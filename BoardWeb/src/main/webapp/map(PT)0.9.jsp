@@ -23,7 +23,7 @@
         /* 링크 버튼 스타일 (줌 컨트롤 위에) */
         .link-to-jsp-button {
             position: absolute; /* 지도 컨테이너 (#map)를 기준으로 절대 위치 설정 */
-            bottom: 75px; /* 줌 컨트롤 바로 위 (bottom: bottomright 줌 컨트롤 위치 + 버튼 높이 + 간격) */
+            bottom: 100px; /* 줌 컨트롤 바로 위 (bottom: bottomright 줌 컨트롤 위치 + 버튼 높이 + 간격) */
             right: 10px; /* 오른쪽 여백 동일하게 */
             z-index: 1100; /* 다른 요소 위에 표시되도록 z-index 값 조정 */
         }
@@ -50,8 +50,8 @@
 <body>
 <div id="map">
     <div id="link-to-jsp-button" class="link-to-jsp-button">
-   		<%-- 현재 JSP 페이지 링크 (맵 전체화면 버튼) --%>
-        <a href="<%=request.getRequestURI()%>" target="_blank" rel="noopener noreferrer"> <input type="button"><img src="/resources/img/fullscreen_icon.png" width="10px" height="10px"></a> 
+   		<%-- (맵 전체화면 버튼) --%>
+        <a href="http://192.168.0.57:9090/map1.0.jsp" target="_blank" rel="noopener noreferrer"><img src="/resources/img/fullscreen_icon.png" width="10px" height="10px"></a> 
     </div>
     <div id="reset-button" class="reset-button">
         <button type="button" onclick="window.location.reload()"><img src="/resources/img/reload-icon.png" width="10px" height="10px"></button>

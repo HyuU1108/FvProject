@@ -96,7 +96,6 @@
     var flightInfoContainer = document.getElementById('flight-info-container');
     var flightInfoTableBody = document.querySelector('#flight-info-container .flight-info-table tbody');
 
-
     function fetchFlights() {
         var username = "sugil2";
         var password = "qwer1234";
@@ -226,7 +225,6 @@
         xhr.send();
     }
 
-
     // 지도 클릭 이벤트 처리 (정보창 닫고 선택 해제)
     map.on('click', function(e) {
         hideFlightInfoContainer();
@@ -235,7 +233,6 @@
             currentPath = null;
         }
     });
-
 
     function updateTable(flightInfo) {
         flightInfoTableBody.innerHTML = '';
