@@ -29,12 +29,7 @@ public class AroundAdvice {
 		
 		System.out.println(method+"() 메소드 수행에 걸린 시간 :"
 				+stopWatch.getTotalTimeMillis()+"(ms) 초");
-		
-		/*
-		 * System.out.println("[BEFORE]: 비즈니스 메소드 수행 전 처리할 내용 ..");
-		 * 
-		 * System.out.println("[AFTER]: 비즈니스 메소드 수행 후 처리할 내용 ..");
-		 */
+
 		return obj;
 	}
 	
