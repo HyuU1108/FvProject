@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <div class="container right-panel-active">
   <!-- Sign Up -->
   <div class="container__form container--signup">
-    <form action="#" class="form" id="form1">
+    <form action="/member/save" class="form" id="form1">
       <h2 class="form__title">회원가입</h2>
       <input type="text" placeholder="아이디" class="input" />
       <input type="email" placeholder="이메일" class="input" />

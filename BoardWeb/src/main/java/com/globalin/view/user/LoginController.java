@@ -36,7 +36,7 @@ public class LoginController {
 
 		UserVO user = userDAO.getUser(vo);
 		if (user != null) {
-			session.setAttribute("userName", user.getName());
+			session.setAttribute("userName", user.getRole());
 			return "redirect:/getBoardList.do";
 		} else {
 			model.addAttribute("loginFail", "로그인에 실패했습니다. 다시 시도해주세요");

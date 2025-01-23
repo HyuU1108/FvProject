@@ -99,7 +99,7 @@
 
 
     function fetchFlights() {
-        var username = "sugil2";
+        var username = "sugil4";
         var password = "qwer1234";
         var base64Credentials = btoa(username + ":" + password);
 
