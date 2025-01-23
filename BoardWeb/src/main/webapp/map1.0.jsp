@@ -7,7 +7,6 @@
     <title>트래커</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
-        /* 스타일은 이전과 동일 */
         #map { height: 100vh; position: relative; }
         .plane-icon { width: 32px; height: 32px; background-image: url("/resources/img/2plane.png"); background-size: cover; transform-origin: center center; }
         .plane-wrapper { display: inline-block; transform-origin: center center; }
